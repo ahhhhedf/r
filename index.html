@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/736x/f2/10/8b/f2108bb986ab35b0b1c46ad996f52e6b.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #000000
+;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-container img {
+            width: 555px; 
+            height: auto;
+            border: 2px solid#ffffff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(148,148,148,1.000)
+; 
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 2em;
+            color: #000000; 
+            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
+            letter-spacing: 4.5px; 
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top:40px;
+            font-size: 8em; 
+            color: #000000; 
+            text-shadow: 0px 0px 8px#f6c9ff, 0px 0px 15px ##ffffff, 0px 0px 25px #ffffff; 
+            letter-spacing: 4.5px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://s3.ezgif.com/tmp/ezgif-3498f26818bb4e.gif" alt="Discord Image">
+    </div>
+    <audio autoplay loop>
+        <source src="https://github.com/1Z8B/Z78G87D/raw/refs/heads/main/%D8%B4%D8%A8%D9%88%20%D8%A7%D9%84%D9%86%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D9%8A%D8%AF%D8%A7%D9%86.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="info" id="ip-info">
+        <strong>IP: <span id="ip"></span></strong><br>
+        <span><strong>City:</strong> <span id="city"></span></span><br>
+    </div>
+    <div class="text">BY 69
+    </div>
+
+    <script>
+         fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            delete data.readme;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.textContent = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html>
